@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from "body-parser";
 import initWebRoutes from './routes/web';
 import configViewEngine from './config/viewEngine';
-
+import connect from './config/connectDB'
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 initWebRoutes(app);
 configViewEngine(app);
+connect();
 
 
 // if port == undefined => port = 2303
