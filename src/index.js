@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from "body-parser";
-import viewEngine from "./config/viewEngine";
-import initWebRoutes from "./routes/web";
+import initWebRoutes from './routes/web';
+import configViewEngine from './config/viewEngine';
+
 require('dotenv').config();
 
 const app = express();
@@ -10,9 +11,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-viewEngine(app);
-initWebRoutes(app);
 
+initWebRoutes(app);
+configViewEngine(app);
 
 
 // if port == undefined => port = 2303
